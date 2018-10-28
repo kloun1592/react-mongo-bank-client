@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "dialog-polyfill": "^0.4.10",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
+    "react-mdl": "^1.11.0",
     "react-scripts": "2.0.5"
   },
   "scripts": {
@@ -21,5 +23,8 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "@types/react-mdl": "^1.7.27"
+  }
 }
