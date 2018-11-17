@@ -12,3 +12,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.mdl-layout__tab-bar
+{
+	align-items: baseline;
+}
+
+.link-tab
+{
+	color: #fff;
+	text-transform: uppercase;
+	padding: 0 20px;
+	text-decoration: none;
+}

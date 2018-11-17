@@ -17,19 +17,17 @@ import {
 import PaymentsTable from "./PaymentsTable";
 import Form from './Form';
 import React from "react";
+import AboutCompaniesPeople from './AboutCompaniesPeople';
+import { BrowserRouter as Router, Route, Link, IndexRoute, Switch } from "react-router-dom";
+import Page404 from './Page404';
 
 class SiteLayout extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { activeTab: 0 };
-    }
 
     render() {
         return (
             <div className="main-container" style={{}}>
 
                 <Layout fixedHeader>
-
 
                     <Header>
                         <HeaderRow title="ООО 'Шпунтик'">
@@ -41,9 +39,10 @@ class SiteLayout extends Component {
                                        expandableIcon="search"
                             />
                         </HeaderRow>
-                        <HeaderTabs ripple activeTab={this.state.activeTab} onChange={(tabId) => this.setState({ activeTab: tabId })}>
-                            <Tab>Поступления</Tab>
-                            <Tab>Списания</Tab>
+                        <HeaderTabs ripple>
+                            <Link to="/receipts" className="link-tab">Поступления</Link>
+                            <Link to="/withdrawals" className="link-tab">Списания</Link>
+                            <Link to="/info" className="link-tab">О компании</Link>
                             <Button className="header-button" id="create-payment-button" raised accent ripple>Создать</Button>
                             <Menu target="create-payment-button" align="right">
                                 <MenuItem>Платёж в рублях</MenuItem>
@@ -57,16 +56,18 @@ class SiteLayout extends Component {
                         <div className="main-content">
                             <Grid>
                                 <Cell col={12} phone={4}>
-                                    {this.state.activeTab === 0 ? <PaymentsTable title={"Дата поступления"}/> : <PaymentsTable title={"Дата списания"}/>}
+                                    <Switch>
+                                        <Route exact path="/receipts" component={() => <PaymentsTable title={"Дата поступления"}  />}/>
+                                        <Route exact path="/withdrawals" component={() => <PaymentsTable title={"Дата списания"} />}/>
+                                        <Route exact path="/info" component={AboutCompaniesPeople} />
+                                        <Route component={Page404}/>
+                                    </Switch>
                                 </Cell>
                                 <Cell col={12}>
-                                    <Form/>
                                 </Cell>
                             </Grid>
                         </div>
                     </Content>
-
-
                 </Layout>
             </div>
         );

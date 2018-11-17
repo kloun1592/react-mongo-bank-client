@@ -18,14 +18,16 @@ class PaymentsTableActionButtons extends Component {
 }
 
 class PaymentsTable extends Component {
+
     render() {
+
         return (
             <DataTable  style={{width: '100%'}}
                         selectable
                         shadow={0}
                         rowKeyColumn="id"
                         rows={[
-                            {id: 1001, date: '22.10.2018', material: 'Acrylic (Transparent)', quantity: <PaymentsTableActionButtons/>, price: 2.90},
+                            {id: 1001, date: '22.10.2018', material: '' , quantity: <PaymentsTableActionButtons/>, price: 2.90},
                             {id: 1002, date: '20.09.2018', material: 'Plywood (Birch)', quantity: <PaymentsTableActionButtons/>, price: 1.25},
                             {id: 1003, date: '20.09.2018', material: 'Laminate (Gold on Blue)', quantity: <PaymentsTableActionButtons/>, price: 2.35}
                         ]}
